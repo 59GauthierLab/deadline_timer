@@ -14,10 +14,32 @@ const LABEL_TEXT = "❣卒論提出まで❣";
 
 const timerEl = document.getElementById("timer");
 const labelEl = document.getElementById("label");
+const deadlineEl = document.getElementById("deadline");
 const toggleBtn = document.getElementById("themeToggle");
+const fontDecreaseBtn = document.getElementById("fontDecrease");
+const fontResetBtn = document.getElementById("fontReset");
+const fontIncreaseBtn = document.getElementById("fontIncrease");
 const body = document.body;
+const root = document.documentElement;
 
 labelEl.textContent = LABEL_TEXT;
+
+/* =========================
+   締切日時表示
+   ========================= */
+
+function formatDeadline(date) {
+  return date.toLocaleString("ja-JP", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+deadlineEl.textContent = `締め切り日時: ${formatDeadline(DEADLINE)}`;
 
 /* =========================
    テーマ切り替え
@@ -26,6 +48,45 @@ labelEl.textContent = LABEL_TEXT;
 toggleBtn.addEventListener("click", () => {
   body.classList.toggle("dark");
   body.classList.toggle("light");
+});
+
+/* =========================
+   フォントサイズ調整
+   ========================= */
+
+const FONT_SCALE = {
+  min: 0.8,
+  max: 1.4,
+  step: 0.1,
+  default: 1,
+};
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function setFontScale(scale) {
+  const nextScale = clamp(scale, FONT_SCALE.min, FONT_SCALE.max);
+  root.style.setProperty("--font-scale", nextScale.toFixed(2));
+}
+
+function getFontScale() {
+  const current = parseFloat(
+    getComputedStyle(root).getPropertyValue("--font-scale"),
+  );
+  return Number.isNaN(current) ? FONT_SCALE.default : current;
+}
+
+fontDecreaseBtn.addEventListener("click", () => {
+  setFontScale(getFontScale() - FONT_SCALE.step);
+});
+
+fontIncreaseBtn.addEventListener("click", () => {
+  setFontScale(getFontScale() + FONT_SCALE.step);
+});
+
+fontResetBtn.addEventListener("click", () => {
+  setFontScale(FONT_SCALE.default);
 });
 
 /* =========================

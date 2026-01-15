@@ -2,6 +2,16 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="締め切りまでの残り時間を表示するシンプルなカウントダウンタイマー。"
+    />
+    <meta property="og:title" content="締め切りタイマー" />
+    <meta
+      property="og:description"
+      content="締め切り日時までの残り時間をわかりやすく表示します。"
+    />
+    <meta property="og:type" content="website" />
     <title>締め切りタイマー</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -10,7 +20,13 @@
 
     <main class="container">
       <div id="label" class="label"></div>
+      <div id="deadline" class="deadline"></div>
       <div id="timer" class="timer">--:--:--:--</div>
+      <div class="controls" aria-label="フォントサイズ調整">
+        <button type="button" class="font-button" id="fontDecrease">A-</button>
+        <button type="button" class="font-button" id="fontReset">標準</button>
+        <button type="button" class="font-button" id="fontIncrease">A+</button>
+      </div>
     </main>
 
     <script src="script.js"></script>
