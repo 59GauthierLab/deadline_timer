@@ -56,9 +56,9 @@ toggleBtn.addEventListener("click", () => {
 
 const FONT_SCALE = {
   min: 0.8,
-  max: 1.4,
+  max: 5,
   step: 0.1,
-  default: 1,
+  default: 1.2,
 };
 
 function clamp(value, min, max) {

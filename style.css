@@ -50,10 +50,12 @@ body.dark {
 }
 
 .controls {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
   display: flex;
   gap: 0.75rem;
   justify-content: center;
-  margin-top: 1.5rem;
 }
 
 .font-button {
