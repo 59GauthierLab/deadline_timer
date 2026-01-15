@@ -3,7 +3,8 @@
    ========================= */
 
 // 締切日時（秒まで指定可）
-const DEADLINE = new Date("2026-01-27T16:29:59");
+// constants.js の文字列を Date に変換して利用
+const DEADLINE = new Date(DEADLINE_TIME_TEXT);
 
 // 表示する任意テキスト
 const LABEL_TEXT = "❣卒論提出まで❣";
