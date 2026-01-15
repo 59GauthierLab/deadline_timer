@@ -23,6 +23,14 @@
 - VS Code の Live Server 等で開く
 - `python -m http.server` などで簡易サーバーを起動して開く
 
+### 1-1. GitHub Pages で公開する（自動デプロイ）
+
+このリポジトリには GitHub Actions を使った GitHub Pages デプロイ用のワークフローが含まれています。`main` ブランチに push すると自動で公開されます。
+
+1. GitHub の **Settings → Pages** を開き、**Source** を **GitHub Actions** に設定します。
+2. `main` ブランチへ push するとワークフローが起動し、公開 URL が発行されます。
+3. 公開後は `https://<ユーザー名>.github.io/<リポジトリ名>/` でアクセスできます。
+
 ### 2. 締切日時とラベルを変更する
 
 `script.js` の冒頭にある設定項目を編集します。
@@ -70,6 +78,7 @@ const LABEL_TEXT = "❣卒論提出まで❣";
 - `index.html` : 画面の骨組み（タイマー表示・ボタン）
 - `style.css` : スタイル定義
 - `script.js` : タイマーのロジック、テーマ切り替え
+- `.github/workflows/deploy.yml` : GitHub Pages 自動デプロイ用ワークフロー
 
 ## 注意点
 
