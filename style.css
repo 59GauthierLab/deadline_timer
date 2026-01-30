@@ -35,6 +35,10 @@ body.dark {
   font-size: calc(1.6rem * var(--font-scale));
   margin-bottom: 1rem;
   opacity: 0.8;
+  /* Computer Modern Math style: serif italic font */
+  font-family: 'Times New Roman', 'Liberation Serif', 'Nimbus Roman', Times, serif;
+  font-style: italic;
+  font-weight: normal;
 }
 
 .deadline {
